@@ -41,7 +41,7 @@ module Zaius
       headers = {
         "User-Agent" => user_agent,
         "x-api-key" => api_key,
-        "Content-Type" => "application/x-www-form-urlencoded",
+        "Content-Type" => "application/json",
       }
 
       headers
