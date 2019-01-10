@@ -14,6 +14,7 @@ require "zaius/api_resource"
 require "zaius/util"
 
 require "zaius/customer"
+require "zaius/event"
 require "zaius/list"
 require "zaius/subscription"
 
