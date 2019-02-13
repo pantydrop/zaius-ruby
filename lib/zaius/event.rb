@@ -3,18 +3,22 @@ module Zaius
     OBJECT_NAME = "Event".freeze
 
     def self.subscribe(list_id:, email:, params: {}, opts: {})
-      data = {
-        list_id: list_id
-      }.merge(params)
+      list_ids = Array(list_id)
 
-      body = {
-        type: "list",
-        action: "subscribe",
-        identifiers: { 
-          email: email
-        },
-        data: data
-      }
+      body = list_ids.map do |list|
+        data = {
+          list_id: list
+        }.merge(params)
+        
+        {
+          type: "list",
+          action: "subscribe",
+          identifiers: { 
+            email: email
+          },
+          data: data
+        }
+      end
 
       resp, opts = request(:post, resource_url, body, opts)
 
